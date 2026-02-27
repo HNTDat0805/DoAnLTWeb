@@ -18,10 +18,7 @@ function playerClick(col) {
 
     if (currentPlayer !== myRole) return; // chặn sai lượt
 
-    sendMove({
-        col: col,
-        player: myRole
-    });
+    sendMove(col);
 }
 
 function dropPiece(row, col, player) {
