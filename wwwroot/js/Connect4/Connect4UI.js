@@ -50,6 +50,6 @@ window.handleReceiveMove = function (move) {
 };
 
 
-initRealtime("/connect4hub");
 initBoard();
 createBoard();
+initRealtime("/connect4hub");
