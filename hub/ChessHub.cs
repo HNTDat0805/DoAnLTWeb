@@ -1,0 +1,57 @@
+﻿using Microsoft.AspNetCore.SignalR;
+
+namespace Boardgame.hub
+{
+    public class ChessHub : GameHub
+    {
+        static Dictionary<string, string> currentTurn = new();
+
+        public async Task CreateRoom(string roomCode)
+        {
+            CreateRoomBase(roomCode);
+            await JoinRoom(roomCode);
+        }
+
+        public async Task JoinRoom(string roomCode)
+        {
+            bool joined = await JoinRoomBase(roomCode);
+            if (!joined) return;
+
+            // Người vào đầu = white
+            // Người vào sau = black
+            string role = rooms[roomCode].Count == 1 ? "white" : "black";
+            playerRoles[Context.ConnectionId] = role;
+
+            await Clients.Caller.SendAsync("SetRole", role);
+
+            if (rooms[roomCode].Count == 2)
+            {
+                currentTurn[roomCode] = "white";
+                await Clients.Group(roomCode).SendAsync("StartGame");
+            }
+        }
+
+        public async Task SendMove(string roomCode, object moveData)
+        {
+            if (!rooms.ContainsKey(roomCode))
+                return;
+
+            if (!playerRoles.ContainsKey(Context.ConnectionId))
+                return;
+
+            if (!currentTurn.ContainsKey(roomCode))
+                return;
+
+            var player = playerRoles[Context.ConnectionId];
+
+            if (currentTurn[roomCode] != player)
+                return;
+
+            await Clients.Group(roomCode)
+                .SendAsync("ReceiveMove", moveData);
+
+            currentTurn[roomCode] =
+                player == "white" ? "black" : "white";
+        }
+    }
+}

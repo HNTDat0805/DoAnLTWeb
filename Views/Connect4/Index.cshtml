@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Connect 4 Online";
+}
+
+<link rel="stylesheet" href="~/css/Connect4/ConnectStyle.css" />
+
+<h2>Connect 4 Online</h2>
+
+<input id="roomInput" placeholder="Room code" />
+<button onclick="createRoom()">Create</button>
+<button onclick="joinRoom()">Join</button>
+
+<h3 id="roleText"></h3>
+<h3 id="status"></h3>
+
+<div id="board"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+<script src="~/js/Realtime.js"></script>
+<script src="~/js/Connect4/Connect4Logic.js"></script>
+<script src="~/js/Connect4/Connect4UI.js"></script>
+

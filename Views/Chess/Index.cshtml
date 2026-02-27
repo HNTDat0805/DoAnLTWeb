@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Chess";
+}
+<link rel="stylesheet" href="~/css/Chess/ChessStyle.css" />
+
+<h2>Cờ Vua Online</h2>
+
+<input id="roomInput" placeholder="Room code" />
+<button onclick="createRoom()">Create</button>
+<button onclick="joinRoom()">Join</button>
+
+<h3 id="roleText"></h3>
+<h3 id="status"></h3>
+<div id="board"></div>
+<div id="promotionMenu" style="display:none;" class="promotion-menu">
+    <button onclick="choosePromotion('queen')">♛</button>
+    <button onclick="choosePromotion('rook')">♜</button>
+    <button onclick="choosePromotion('bishop')">♝</button>
+    <button onclick="choosePromotion('knight')">♞</button>
+</div>
+    
+    <!-- SignalR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script src="~/js/Realtime.js"></script>
+    <!-- Logic -->
+    <script src="~/js/Chess/ChessLogic.js"></script>
+
+    <!-- UI -->
+    <script src="~/js/Chess/ChessUI.js"></script>

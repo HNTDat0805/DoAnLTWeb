@@ -1,0 +1,64 @@
+﻿body {
+    background: #1e1e2f;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(7, 70px); /* 7 cột */
+    grid-template-rows: repeat(6, 70px);
+    gap: 8px;
+    justify-content: center;
+    margin-top: 30px;
+    background: #0047ab;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.piece {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    margin: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .cell:hover {
+        transform: scale(1.1);
+    }
+
+.red {
+    background: red;
+}
+
+.yellow {
+    background: yellow;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    button:hover {
+        opacity: 0.8;
+    }
