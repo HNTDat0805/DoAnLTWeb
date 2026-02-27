@@ -1,46 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\",
+  "WorkspaceRootPath": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\wwwroot\\js\\chess\\chessui.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\wwwroot\\js\\chess\\chessui.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:wwwroot\\js\\chess\\chessui.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\wwwroot\\js\\chess\\chesslogic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\wwwroot\\js\\chess\\chesslogic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:wwwroot\\js\\chess\\chesslogic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\wwwroot\\js\\realtime.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\wwwroot\\js\\realtime.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:wwwroot\\js\\realtime.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\hub\\connect4hub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\hub\\connect4hub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:hub\\connect4hub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\wwwroot\\css\\chess\\chessstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\wwwroot\\css\\chess\\chessstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:wwwroot\\css\\chess\\chessstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\wwwroot\\js\\connect4\\connect4logic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\wwwroot\\js\\connect4\\connect4logic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:wwwroot\\js\\connect4\\connect4logic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\wwwroot\\js\\connect4\\connect4ui.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\wwwroot\\js\\connect4\\connect4ui.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:wwwroot\\js\\connect4\\connect4ui.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\hub\\chesshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\hub\\chesshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:hub\\chesshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\views\\chess\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\views\\chess\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:views\\chess\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|d:\\baitap\\l\u1EADp tr\u00ECnh web\\boardgame\\views\\connect4\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\views\\connect4\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:views\\connect4\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|c:\\users\\magam\\source\\repos\\doanltweb\\hub\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA4A7321-181A-E0D8-A788-69723C000E15}|Boardgame.csproj|solutionrelative:hub\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,39 +78,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Connect4Hub.cs",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\hub\\Connect4Hub.cs",
-              "RelativeDocumentMoniker": "hub\\Connect4Hub.cs",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\hub\\Connect4Hub.cs",
-              "RelativeToolTip": "hub\\Connect4Hub.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwCcAAABIAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "GameHub.cs",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\hub\\GameHub.cs",
+              "RelativeDocumentMoniker": "hub\\GameHub.cs",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\hub\\GameHub.cs",
+              "RelativeToolTip": "hub\\GameHub.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:30:54.949Z",
+              "WhenOpened": "2026-02-27T07:12:26.873Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Connect4Logic.js",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Connect4\\Connect4Logic.js",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Connect4\\Connect4Logic.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Connect4\\Connect4Logic.js",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Connect4\\Connect4Logic.js",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Connect4\\Connect4Logic.js",
               "RelativeToolTip": "wwwroot\\js\\Connect4\\Connect4Logic.js",
               "ViewState": "AgIAACQAAAAAAAAAAAAiwDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-02-27T06:10:31.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T06:10:31.21Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Realtime.js",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Realtime.js",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Realtime.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Realtime.js",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Realtime.js",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Realtime.js",
               "RelativeToolTip": "wwwroot\\js\\Realtime.js",
-              "ViewState": "AgIAACEAAAAAAAAAAAAUwCkAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAIBJwE4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-02-27T06:04:37.777Z",
               "EditorCaption": ""
@@ -115,61 +118,72 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "ChessStyle.css",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\css\\Chess\\ChessStyle.css",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\css\\Chess\\ChessStyle.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\Chess\\ChessStyle.css",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\css\\Chess\\ChessStyle.css",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\css\\Chess\\ChessStyle.css",
               "RelativeToolTip": "wwwroot\\css\\Chess\\ChessStyle.css",
-              "ViewState": "AgIAACgAAAAAAAAAAAAIwEYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAIBJwFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-02-27T05:26:55.675Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChessLogic.js",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Chess\\ChessLogic.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Chess\\ChessLogic.js",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Chess\\ChessLogic.js",
-              "RelativeToolTip": "wwwroot\\js\\Chess\\ChessLogic.js",
-              "ViewState": "AgIAAGcBAAAAAAAAAAAcwHkBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-02-26T09:10:53.945Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ChessUI.js",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Chess\\ChessUI.js",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Chess\\ChessUI.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Chess\\ChessUI.js",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Chess\\ChessUI.js",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Chess\\ChessUI.js",
               "RelativeToolTip": "wwwroot\\js\\Chess\\ChessUI.js",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAiwJMAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAALQAAAAAAAAAAAAqwM4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-02-26T09:11:08.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Connect4Hub.cs",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\hub\\Connect4Hub.cs",
+              "RelativeDocumentMoniker": "hub\\Connect4Hub.cs",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\hub\\Connect4Hub.cs",
+              "RelativeToolTip": "hub\\Connect4Hub.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCcAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T06:30:54.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChessLogic.js",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Chess\\ChessLogic.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Chess\\ChessLogic.js",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Chess\\ChessLogic.js",
+              "RelativeToolTip": "wwwroot\\js\\Chess\\ChessLogic.js",
+              "ViewState": "AgIAAMYBAAAAAAAAAIBQwMgBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-02-26T09:10:53.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Connect4UI.js",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Connect4\\Connect4UI.js",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Connect4\\Connect4UI.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Connect4\\Connect4UI.js",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\wwwroot\\js\\Connect4\\Connect4UI.js",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\wwwroot\\js\\Connect4\\Connect4UI.js",
               "RelativeToolTip": "wwwroot\\js\\Connect4\\Connect4UI.js",
               "ViewState": "AgIAACQAAAAAAAAAAAAYwDQAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-02-27T06:11:17.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T06:11:17.562Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\Views\\Chess\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\Views\\Chess\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Chess\\Index.cshtml",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\Views\\Chess\\Index.cshtml",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\Views\\Chess\\Index.cshtml",
               "RelativeToolTip": "Views\\Chess\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -179,21 +193,22 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "ChessHub.cs",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\hub\\ChessHub.cs",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\hub\\ChessHub.cs",
               "RelativeDocumentMoniker": "hub\\ChessHub.cs",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\hub\\ChessHub.cs",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\hub\\ChessHub.cs",
               "RelativeToolTip": "hub\\ChessHub.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAYwDYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAABRwEoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T05:14:12.235Z"
+              "WhenOpened": "2026-02-27T05:14:12.235Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\Views\\Connect4\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\Views\\Connect4\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Connect4\\Index.cshtml",
-              "ToolTip": "D:\\Baitap\\L\u1EADp tr\u00ECnh web\\Boardgame\\Views\\Connect4\\Index.cshtml",
+              "ToolTip": "C:\\Users\\magam\\source\\repos\\DoAnLTWeb\\Views\\Connect4\\Index.cshtml",
               "RelativeToolTip": "Views\\Connect4\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",

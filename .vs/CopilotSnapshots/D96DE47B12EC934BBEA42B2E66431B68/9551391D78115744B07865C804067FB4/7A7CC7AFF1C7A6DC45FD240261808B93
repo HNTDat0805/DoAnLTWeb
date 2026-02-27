@@ -1,0 +1,147 @@
+﻿let selected = null;
+
+function createBoard() {
+
+    const boardDiv = document.getElementById("board");
+    boardDiv.innerHTML = "";
+
+    for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.classList.add((r + c) % 2 === 0 ? "white" : "black");
+            cell.id = `cell-${r}-${c}`;
+
+            cell.onclick = () => handleClick(r, c);
+            boardDiv.appendChild(cell);
+        }
+    }
+
+    renderBoard();
+}
+
+function renderBoard() {
+
+    for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+
+            let cell = document.getElementById(`cell-${r}-${c}`);
+            cell.innerHTML = "";
+
+            let piece = board[r][c];
+            if (piece) {
+
+                let div = document.createElement("div");
+                div.classList.add("piece", piece.color);
+                div.innerText = getSymbol(piece.type, piece.color);
+
+                cell.appendChild(div);
+            }
+        }
+    }
+}
+
+function getSymbol(type, color) {
+
+    const symbols = {
+        white: {
+            pawn: "♙",
+            rook: "♖",
+            knight: "♘",
+            bishop: "♗",
+            queen: "♕",
+            king: "♔"
+        },
+        black: {
+            pawn: "♟",
+            rook: "♜",
+            knight: "♞",
+            bishop: "♝",
+            queen: "♛",
+            king: "♚"
+        }
+    };
+
+    return symbols[color][type];
+}
+
+function handleClick(r, c) {
+
+    if (gameOver) return;
+
+    // ❗ Không cho đi nếu chưa vào phòng
+    if (!roomId) {
+        alert("Join a room first!");
+        return;
+    }
+
+    // ❗ Không phải lượt mình
+    if (myRole !== currentPlayer)
+        return;
+
+    if (!selected) {
+
+        if (board[r][c] &&
+            board[r][c].color === myRole) {
+
+            selected = { r, c };
+        }
+
+    } else {
+
+        // Do not apply the move locally to avoid desync with server.
+        // Use isValidMove to check client-side legality, then send to server.
+        let piece = board[selected.r][selected.c];
+        if (!piece || piece.color !== myRole) {
+            selected = null;
+            return;
+        }
+
+        let valid = isValidMove(
+            selected.r,
+            selected.c,
+            r,
+            c,
+            piece
+        );
+
+        if (valid) {
+            sendMove({
+                fr: selected.r,
+                fc: selected.c,
+                tr: r,
+                tc: c,
+                player: myRole
+            });
+        }
+
+        selected = null;
+    }
+}
+
+function choosePromotion(type) {
+
+    promote(type);
+    renderBoard();
+}
+
+window.handleReceiveMove = function (move) {
+    let result = makeMove(
+        move.fr,
+        move.fc,
+        move.tr,
+        move.tc,
+        move.player,
+        true
+    );
+
+    renderBoard();
+
+    if (result === "promotion") {
+        showPromotionMenu();
+    }
+};
+initRealtime("/chesshub");
+initBoard();
+createBoard();createBoard();

@@ -1485,11 +1485,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Baitap\\Lập trình web\\Boardgame\\Boardgame.csproj",
+      "projectUniqueName": "C:\\Users\\magam\\Source\\Repos\\DoAnLTWeb\\Boardgame.csproj",
       "projectName": "Boardgame",
-      "projectPath": "D:\\Baitap\\Lập trình web\\Boardgame\\Boardgame.csproj",
+      "projectPath": "C:\\Users\\magam\\Source\\Repos\\DoAnLTWeb\\Boardgame.csproj",
       "packagesPath": "C:\\Users\\magam\\.nuget\\packages\\",
-      "outputPath": "D:\\Baitap\\Lập trình web\\Boardgame\\obj\\",
+      "outputPath": "C:\\Users\\magam\\Source\\Repos\\DoAnLTWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

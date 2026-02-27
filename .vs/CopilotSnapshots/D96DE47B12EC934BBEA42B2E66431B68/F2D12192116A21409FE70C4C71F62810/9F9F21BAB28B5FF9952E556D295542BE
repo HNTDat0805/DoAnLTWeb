@@ -1,0 +1,398 @@
+﻿const SIZE = 8;
+
+let board = [];
+let currentPlayer = "white";
+let gameOver = false;
+let moveHistory = [];
+let positionHistory = {};
+let enPassantTarget = null;
+let pendingPromotion = null;
+
+function initBoard() {
+    board = Array.from({ length: SIZE }, () => Array(SIZE).fill(null));
+
+    for (let i = 0; i < SIZE; i++) {
+        board[6][i] = { type: "pawn", color: "white" };
+        board[1][i] = { type: "pawn", color: "black" };
+    }
+
+    board[7][0] = board[7][7] = { type: "rook", color: "white" };
+    board[0][0] = board[0][7] = { type: "rook", color: "black" };
+
+    board[7][1] = board[7][6] = { type: "knight", color: "white" };
+    board[0][1] = board[0][6] = { type: "knight", color: "black" };
+
+    board[7][2] = board[7][5] = { type: "bishop", color: "white" };
+    board[0][2] = board[0][5] = { type: "bishop", color: "black" };
+
+    board[7][3] = { type: "queen", color: "white" };
+    board[0][3] = { type: "queen", color: "black" };
+
+    board[7][4] = { type: "king", color: "white" };
+    board[0][4] = { type: "king", color: "black" };
+}
+
+function makeMove(fr, fc, tr, tc, player, skipValidation = false) {
+
+    if (gameOver) return false;
+
+    let piece = board[fr][fc];
+    if (!piece) return false;
+
+    if (!skipValidation) {
+        if (piece.color !== player) return false;
+        if (!isValidMove(fr, fc, tr, tc, piece)) return false;
+    }
+
+    let backup = board[tr][tc];
+
+    // --- En Passant capture ---
+    if (piece.type === "pawn" &&
+        enPassantTarget &&
+        tr === enPassantTarget.r &&
+        tc === enPassantTarget.c) {
+
+        board[fr][tc] = null;
+    }
+
+    // --- Nhập thành ---
+    if (piece.type === "king" && Math.abs(tc - fc) === 2) {
+        let rookFrom = tc > fc ? 7 : 0;
+        let rookTo = tc > fc ? 5 : 3;
+
+        board[fr][rookTo] = board[fr][rookFrom];
+        board[fr][rookFrom] = null;
+        board[fr][rookTo].moved = true;
+    }
+
+    board[tr][tc] = piece;
+    board[fr][fc] = null;
+
+    if (!skipValidation) {
+        if (isCheck(player)) {
+            board[fr][fc] = piece;
+            board[tr][tc] = backup;
+            return false;
+        }
+    }
+
+    piece.moved = true;
+
+    // --- En Passant set ---
+    if (piece.type === "pawn" && Math.abs(tr - fr) === 2) {
+        enPassantTarget = { r: (fr + tr) / 2, c: fc };
+    } else {
+        enPassantTarget = null;
+    }
+
+    // --- Promotion ---
+    if (piece.type === "pawn" &&
+        ((piece.color === "white" && tr === 0) ||
+            (piece.color === "black" && tr === 7))) {
+
+        pendingPromotion = { r: tr, c: tc, color: piece.color };
+        return "promotion";
+    }
+
+    savePosition();
+
+    if (isCheckmate(opponent(player))) {
+        alert(player + " wins by checkmate!");
+        gameOver = true;
+    }
+
+    if (isStalemate(opponent(player))) {
+        alert("Draw by stalemate!");
+        gameOver = true;
+    }
+
+    if (positionHistory[getBoardKey()] >= 3) {
+        alert("Draw by repetition!");
+        gameOver = true;
+    }
+
+    currentPlayer = opponent(player);
+    return true;
+}
+function isValidMove(fr, fc, tr, tc, piece) {
+
+    if (tr < 0 || tr >= SIZE || tc < 0 || tc >= SIZE)
+        return false;
+
+    let target = board[tr][tc];
+    if (target && target.color === piece.color)
+        return false;
+
+    let dr = tr - fr;
+    let dc = tc - fc;
+
+    switch (piece.type) {
+
+        case "pawn": {
+            let dir = piece.color === "white" ? -1 : 1;
+
+            if (dc === 0 && !target) {
+                if (dr === dir) return true;
+
+                if (!piece.moved && dr === 2 * dir &&
+                    !board[fr + dir][fc])
+                    return true;
+            }
+
+            if (Math.abs(dc) === 1 && dr === dir) {
+
+                if (target) return true;
+
+                if (enPassantTarget &&
+                    tr === enPassantTarget.r &&
+                    tc === enPassantTarget.c)
+                    return true;
+            }
+
+            return false;
+        }
+
+        case "rook":
+            if (dr === 0 || dc === 0)
+                return pathClear(fr, fc, tr, tc);
+            return false;
+
+        case "bishop":
+            if (Math.abs(dr) === Math.abs(dc))
+                return pathClear(fr, fc, tr, tc);
+            return false;
+
+        case "queen":
+            if (dr === 0 || dc === 0 ||
+                Math.abs(dr) === Math.abs(dc))
+                return pathClear(fr, fc, tr, tc);
+            return false;
+
+        case "knight":
+            return (Math.abs(dr) === 2 && Math.abs(dc) === 1) ||
+                (Math.abs(dr) === 1 && Math.abs(dc) === 2);
+
+        case "king": {
+
+            if (Math.abs(dr) <= 1 && Math.abs(dc) <= 1)
+                return true;
+
+            // CASTLING
+            if (dr === 0 && Math.abs(dc) === 2) {
+
+                if (piece.moved) return false;
+
+                let rookCol = dc > 0 ? 7 : 0;
+                let rook = board[fr][rookCol];
+
+                if (!rook || rook.type !== "rook" || rook.moved)
+                    return false;
+
+                if (!pathClear(fr, fc, fr, rookCol))
+                    return false;
+
+                // Không được đang bị chiếu
+                if (isCheck(piece.color))
+                    return false;
+
+                // Không được đi qua ô bị chiếu
+                let step = dc > 0 ? 1 : -1;
+
+                for (let i = 1; i <= 2; i++) {
+                    let testC = fc + step * i;
+
+                    // Backup state for safety during test
+                    let backupFrom = board[fr][fc];
+                    let backupTo = board[fr][testC];
+                    let backupEnPassant = enPassantTarget;
+
+                    board[fr][testC] = piece;
+                    board[fr][fc] = null;
+
+                    let check = isCheck(piece.color);
+
+                    board[fr][fc] = backupFrom;
+                    board[fr][testC] = backupTo;
+                    enPassantTarget = backupEnPassant;
+
+                    if (check) return false;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    return false;
+}
+function pathClear(fr, fc, tr, tc) {
+
+    let stepR = Math.sign(tr - fr);
+    let stepC = Math.sign(tc - fc);
+
+    let r = fr + stepR;
+    let c = fc + stepC;
+
+    while (r !== tr || c !== tc) {
+        if (board[r][c]) return false;
+        r += stepR;
+        c += stepC;
+    }
+
+    return true;
+}
+
+function isCheck(color) {
+
+    let kingPos = findKing(color);
+    if (!kingPos) return false;
+
+    let enemy = opponent(color);
+
+    for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+            let p = board[r][c];
+            if (p && p.color === enemy) {
+                if (isValidMove(r, c, kingPos.r, kingPos.c, p))
+                    return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+function isCheckmate(color) {
+
+    if (!isCheck(color)) return false;
+
+    for (let fr = 0; fr < SIZE; fr++) {
+        for (let fc = 0; fc < SIZE; fc++) {
+
+            let piece = board[fr][fc];
+            if (!piece || piece.color !== color) continue;
+
+            for (let tr = 0; tr < SIZE; tr++) {
+                for (let tc = 0; tc < SIZE; tc++) {
+
+                    if (!isValidMove(fr, fc, tr, tc, piece)) continue;
+
+                    // Backup relevant state
+                    let backupFrom = board[fr][fc];
+                    let backupTo = board[tr][tc];
+                    let backupEnPassant = enPassantTarget;
+                    let backupMoved = piece.moved;
+
+                    // Simulate move
+                    board[tr][tc] = piece;
+                    board[fr][fc] = null;
+
+                    // Check if still in check
+                    let stillCheck = isCheck(color);
+
+                    // Restore state
+                    board[fr][fc] = backupFrom;
+                    board[tr][tc] = backupTo;
+                    enPassantTarget = backupEnPassant;
+                    piece.moved = backupMoved;
+
+                    if (!stillCheck) return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+function findKing(color) {
+    for (let r = 0; r < SIZE; r++)
+        for (let c = 0; c < SIZE; c++)
+            if (board[r][c] &&
+                board[r][c].type === "king" &&
+                board[r][c].color === color)
+                return { r, c };
+    return null;
+}
+
+function opponent(color) {
+    return color === "white" ? "black" : "white";
+}
+
+function isStalemate(color) {
+
+    if (isCheck(color)) return false;
+
+    for (let fr = 0; fr < SIZE; fr++)
+        for (let fc = 0; fc < SIZE; fc++) {
+
+            let piece = board[fr][fc];
+            if (!piece || piece.color !== color) continue;
+
+            for (let tr = 0; tr < SIZE; tr++)
+                for (let tc = 0; tc < SIZE; tc++) {
+
+                    if (!isValidMove(fr, fc, tr, tc, piece))
+                        continue;
+
+                    // Backup relevant state
+                    let backupFrom = board[fr][fc];
+                    let backupTo = board[tr][tc];
+                    let backupEnPassant = enPassantTarget;
+                    let backupMoved = piece.moved;
+
+                    // Simulate move
+                    board[tr][tc] = piece;
+                    board[fr][fc] = null;
+
+                    let stillCheck = isCheck(color);
+
+                    // Restore state
+                    board[fr][fc] = backupFrom;
+                    board[tr][tc] = backupTo;
+                    enPassantTarget = backupEnPassant;
+                    piece.moved = backupMoved;
+
+                    if (!stillCheck) return false;
+                }
+        }
+
+    return true;
+}
+
+function getBoardKey() {
+    return JSON.stringify({
+        board,
+        currentPlayer
+    });
+}
+
+function savePosition() {
+    let key = getBoardKey();
+    positionHistory[key] = (positionHistory[key] || 0) + 1;
+}
+
+function promote(type) {
+
+    if (!pendingPromotion) return;
+
+    board[pendingPromotion.r][pendingPromotion.c].type = type;
+
+    let color = pendingPromotion.color;
+    pendingPromotion = null;
+
+    savePosition();
+
+    if (isCheckmate(opponent(color))) {
+        alert(color + " wins by checkmate!");
+        gameOver = true;
+    }
+
+    currentPlayer = opponent(color);
+}
+
+function showPromotionMenu() {
+    document.getElementById("promotionMenu").style.display = "block";
+}

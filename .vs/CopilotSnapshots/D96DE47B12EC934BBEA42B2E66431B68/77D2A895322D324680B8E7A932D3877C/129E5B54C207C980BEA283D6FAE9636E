@@ -1,0 +1,186 @@
+﻿let selected = null;
+let isWaitingForServer = false; // block input until server broadcasts the move
+
+function createBoard() {
+
+    const boardDiv = document.getElementById("board");
+    boardDiv.innerHTML = "";
+
+    for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.classList.add((r + c) % 2 === 0 ? "white" : "black");
+            cell.id = `cell-${r}-${c}`;
+
+            cell.onclick = () => handleClick(r, c);
+            boardDiv.appendChild(cell);
+        }
+    }
+
+    renderBoard();
+}
+
+function renderBoard() {
+
+    for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+
+            let cell = document.getElementById(`cell-${r}-${c}`);
+            if (!cell) continue;
+            cell.innerHTML = "";
+            cell.classList.remove('selected');
+
+            let piece = board[r][c];
+            if (piece) {
+
+                let div = document.createElement("div");
+                div.classList.add("piece", piece.color);
+                div.innerText = getSymbol(piece.type, piece.color);
+
+                cell.appendChild(div);
+            }
+        }
+    }
+
+    // restore selection highlight if applicable
+    if (selected) {
+        let cell = document.getElementById(`cell-${selected.r}-${selected.c}`);
+        if (cell) cell.classList.add('selected');
+    }
+}
+
+function getSymbol(type, color) {
+
+    const symbols = {
+        white: {
+            pawn: "♙",
+            rook: "♖",
+            knight: "♘",
+            bishop: "♗",
+            queen: "♕",
+            king: "♔"
+        },
+        black: {
+            pawn: "♟",
+            rook: "♜",
+            knight: "♞",
+            bishop: "♝",
+            queen: "♛",
+            king: "♚"
+        }
+    };
+
+    return symbols[color][type];
+}
+
+function clearSelection() {
+    if (!selected) return;
+    let prev = document.getElementById(`cell-${selected.r}-${selected.c}`);
+    if (prev) prev.classList.remove('selected');
+    selected = null;
+}
+
+function handleClick(r, c) {
+
+    if (gameOver) return;
+
+    // block input while waiting server ack
+    if (isWaitingForServer) return;
+
+    // ❗ Không cho đi nếu chưa vào phòng
+    if (!roomId) {
+        alert("Join a room first!");
+        return;
+    }
+
+    // ❗ Không phải lượt mình
+    if (myRole !== currentPlayer)
+        return;
+
+    if (!selected) {
+
+        if (board[r][c] &&
+            board[r][c].color === myRole) {
+
+            selected = { r, c };
+            let cell = document.getElementById(`cell-${r}-${c}`);
+            if (cell) cell.classList.add('selected');
+        }
+
+    } else {
+
+        // If clicked the same cell, deselect
+        if (selected.r === r && selected.c === c) {
+            clearSelection();
+            return;
+        }
+
+        let piece = board[selected.r][selected.c];
+        if (!piece || piece.color !== myRole) {
+            clearSelection();
+            return;
+        }
+
+        // client-side quick legality check (does not replace server validation)
+        let valid = false;
+        try {
+            valid = isValidMove(selected.r, selected.c, r, c, piece);
+        } catch (e) {
+            // if helper not available, allow send and let server decide
+            valid = true;
+        }
+
+        if (valid) {
+            isWaitingForServer = true;
+            sendMove({
+                fr: selected.r,
+                fc: selected.c,
+                tr: r,
+                tc: c,
+                player: myRole
+            });
+        } else {
+            // simple feedback: flash cell
+            let cell = document.getElementById(`cell-${r}-${c}`);
+            if (cell) {
+                cell.style.transition = 'background 0.2s';
+                cell.style.filter = 'brightness(0.8)';
+                setTimeout(() => cell.style.filter = '', 150);
+            }
+        }
+
+        clearSelection();
+    }
+}
+
+function choosePromotion(type) {
+
+    promote(type);
+    renderBoard();
+}
+
+window.handleReceiveMove = function (move) {
+    // When receive move from server, apply it and unlock input
+    let result = makeMove(
+        move.fr,
+        move.fc,
+        move.tr,
+        move.tc,
+        move.player,
+        true
+    );
+
+    renderBoard();
+
+    isWaitingForServer = false;
+
+    if (result === "promotion") {
+        showPromotionMenu();
+    }
+};
+
+initRealtime("/chesshub");
+initBoard();
+createBoard();
