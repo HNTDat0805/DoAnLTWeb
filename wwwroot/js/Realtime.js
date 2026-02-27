@@ -6,6 +6,10 @@ let myRole = "";
 
 function initRealtime(hubUrl) {
 
+    if (!window.signalR) {
+        console.error("SignalR script was not loaded.");
+        return;
+    }
     connection = new signalR.HubConnectionBuilder()
         .withUrl(hubUrl)
         .build();
